@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 
 export class RecipeManagementService {
   
-  recipeData;
+  recipeData = [];
 
   constructor() { }
 
@@ -16,6 +16,6 @@ export class RecipeManagementService {
   }
 
   setRecipeData(data){
-    this.recipeData = data;
+    this.recipeData.push(data);
   }
 }
