@@ -4,16 +4,16 @@
             <div class="card">
                 <img class="card-img-top" src="{{ data.image }}" alt="Card image ">
                 <div class="card-body ">
-                    <h4 class="card-title ">{{ data.name }}</h4>
-                    <p class="card-text">{{ data.type }}</p>
-                    <p class="card-text">{{ data.description }}</p>
-                    <p class="card-text">{{ data.chef }}</p>
-                    <p class="card-text">{{ data.approved == 1 ? 'Vivek' : 'Sachin'}}</p>
+                    <h4 class="card-title text-center">{{ data.name }}</h4>
+                    <div class="card-text description-section" style="-webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">{{ data.description }}</div>
+                    <div class="card-text veg"><b>{{ data.type }}</b></div>
+                    <div class=" card-text "><b>Chef:</b> {{ data.chef }}</div>
+                    <div class="card-text "><b>Approved By:</b> {{ data.approved == 1 ? 'Vivek' : 'Sachin'}}</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pt-3">
+    <div class="pt-3 " *ngIf="showRecipe ">
         <button (click)="goToCreateRecipe() " class="ml-2 btn btn-primary ">Create Recipe</button>
     </div>
 </div>

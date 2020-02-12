@@ -6,16 +6,53 @@ import { Injectable } from '@angular/core';
 })
 
 export class RecipeManagementService {
-  
-  recipeData = [];
+
+  recipeData = [
+    {
+      name: 'vivek',
+      image: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+      description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      type: 'NonVeg',
+      chef: 'vivek',
+      approved: 'vivek'
+    }, {
+      name: 'vivek',
+      image: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+      description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      type: 'Veg',
+      chef: 'vivek',
+      approved: 'vivek'
+    }, {
+      name: 'vivek',
+      image: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+      description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      type: 'Veg',
+      chef: 'vivek',
+      approved: 'vivek'
+    }, {
+      name: 'vivek',
+      image: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+      description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      type: 'NonVeg',
+      chef: 'vivek',
+      approved: 'vivek'
+    }, {
+      name: 'vivek',
+      image: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg',
+      description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      type: 'NonVeg',
+      chef: 'vivek',
+      approved: 'vivek'
+    }
+  ];
 
   constructor() { }
 
-  getRecipeData(){
+  getRecipeData() {
     return this.recipeData;
   }
 
-  setRecipeData(data){
+  setRecipeData(data) {
     this.recipeData.push(data);
   }
 }
