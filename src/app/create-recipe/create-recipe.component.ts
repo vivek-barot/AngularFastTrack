@@ -1,3 +1,4 @@
+import { RecipeManagementService } from './../helpers/recipe-management.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,12 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './create-recipe.component.html',
   styleUrls: ['./create-recipe.component.css']
 })
+
 export class CreateRecipeComponent implements OnInit {
 
   createRecipeForm: FormGroup;
   type = ['Veg', 'Nonveg'];
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private rm: RecipeManagementService) {
   }
 
   ngOnInit() {
@@ -21,28 +23,20 @@ export class CreateRecipeComponent implements OnInit {
       image: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
-      chef: new FormControl('1')
+      chef: new FormControl('', Validators.required),
+      approved: new FormControl('1')
     });
   }
 
   onSubmit() {
-    // Make sure to create a deep copy of the form-model
-    const result = { ...this.createRecipeForm.value };
-    // const result = { 'result': {...this.createRecipeForm.value} };
-    this.createRecipeForm.reset({ name: '', image: '', description: '', type: '', chef: '1' });
-
-    // Do useful stuff with the gathered data
-    console.log(result.name);
-    // console.log(result.result.name);
-
+    let result = { ...this.createRecipeForm.value };
+    this.createRecipeForm.reset({ name: '', image: '', description: '', type: '', chef: '', approved: '1' });
+    console.log(result);
+    this.rm.setRecipeData(result);
     this.router.navigate(['list']);
   }
 
   revert() {
-    // Resets to blank object
-    this.createRecipeForm.reset();
-
-    // Resets to provided model
-    this.createRecipeForm.reset({ name: '', image: '', description: '', type: '', chef: '' });
+    this.createRecipeForm.reset({ name: '', image: '', description: '', type: '', chef: '', approved: '1' });
   }
 }
