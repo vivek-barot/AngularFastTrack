@@ -1,6 +1,6 @@
-import { ListRecipeComponent } from './list-recipe/list-recipe.component';
-import { HomeComponent } from './home/home.component';
-import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { ListRecipeComponent } from './components/list-recipe/list-recipe.component';
+import { HomeComponent } from './components/home/home.component';
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
