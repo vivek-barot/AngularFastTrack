@@ -1,0 +1,19 @@
+.description-section {
+    height: 70px;
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    margin-bottom: 10px;
+}
+
+.non-veg {
+    color: red;
+}
+
+.veg {
+    color: green;
+}

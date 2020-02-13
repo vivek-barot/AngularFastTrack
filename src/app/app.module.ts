@@ -1,16 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListRecipeComponent } from './components/list-recipe/list-recipe.component';
+import { ChangeBackgroundDirective } from './shared/change-background.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateRecipeComponent,
+    HomeComponent,
+    ListRecipeComponent,
+    ChangeBackgroundDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

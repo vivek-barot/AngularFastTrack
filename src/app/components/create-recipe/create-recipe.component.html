@@ -1,0 +1,51 @@
+<div class="container pt-3">
+    <form [formGroup]="createRecipeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Recipe Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Your Name">
+            <p *ngIf="createRecipeForm.controls.name.hasError('required') && createRecipeForm.controls.name.touched" class="error">Recipe Name is required.</p>
+        </div>
+        <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" class="form-control" formControlName="image" placeholder="Enter Image URL">
+            <p *ngIf="createRecipeForm.controls.image.hasError('required') && createRecipeForm.controls.image.touched" class="error">Image is required.</p>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="3" formControlName="description" placeholder="Enter Recipe Description"></textarea>
+            <p *ngIf="createRecipeForm.controls.description.hasError('required') && createRecipeForm.controls.description.touched" class="error">Description is required.</p>
+        </div>
+        <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" formControlName="type">
+            <option *ngFor="let types of type" [value]="types">{{ types }}</option>
+        </select>
+            <p *ngIf="createRecipeForm.controls.type.hasError('required') && createRecipeForm.controls.type.touched" class="error">Type is required.</p>
+        </div>
+        <div class="form-group">
+            <label>Chef</label>
+            <input type="text" class="form-control" formControlName="chef" placeholder="Enter Chef Name">
+            <p *ngIf="createRecipeForm.controls.chef.hasError('required') && createRecipeForm.controls.chef.touched" class="error">Chef Name is required.</p>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Approved By</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="approved" value="1" [checked]="true" type="radio">
+                        <label class="form-check-label">Vivek</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="approved" value="2" type="radio">
+                        <label class="form-check-label">Sachin</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <button [disabled]="!createRecipeForm.valid" type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" (click)="revert()" [disabled]="createRecipeForm.pristine" class="ml-2 btn btn-dark">Clear</button>
+    </form>
+</div>
+<div>
+    <app-list-recipe [showRecipe]="false"></app-list-recipe>
+</div>
