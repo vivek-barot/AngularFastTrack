@@ -1,5 +1,5 @@
 .description-section {
-    height: 70px;
+    height: 75px;
     display: block;
     display: -webkit-box;
     max-width: 100%;
@@ -16,4 +16,22 @@
 
 .veg {
     color: green;
+}
+
+.setFavIcon {
+    height: 25px;
+    width: 25px;
+}
+
+.inlineDisplay {
+    display: inline;
+}
+
+.rightFloat {
+    float: right;
+}
+
+.setImage {
+    height: 275px;
+    object-fit: cover;
 }

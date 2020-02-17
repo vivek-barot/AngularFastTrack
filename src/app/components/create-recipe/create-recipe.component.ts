@@ -1,4 +1,4 @@
-import { RecipeManagementService } from '../../services/recipe-management.service';
+import { RecipeManagementService } from './../../services/recipe-management.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ export class CreateRecipeComponent implements OnInit {
   createRecipeForm: FormGroup;
   type = ['Veg', 'Nonveg'];
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private rm: RecipeManagementService) {
+  constructor(private router: Router, private recipeManagementService: RecipeManagementService) {
   }
 
   ngOnInit() {
@@ -24,15 +24,15 @@ export class CreateRecipeComponent implements OnInit {
       description: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
       chef: new FormControl('', Validators.required),
-      approved: new FormControl('1')
+      approved: new FormControl('1'),
+      isFavorite: new FormControl(false)
     });
   }
 
   onSubmit() {
-    let result = { ...this.createRecipeForm.value };
+    let formData = { ...this.createRecipeForm.value };
     this.createRecipeForm.reset({ name: '', image: '', description: '', type: '', chef: '', approved: '1' });
-    console.log(result);
-    this.rm.setRecipeData(result);
+    this.recipeManagementService.setRecipeData(formData);
     this.router.navigate(['list']);
   }
 

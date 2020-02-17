@@ -1,4 +1,4 @@
-import { RecipeManagementService } from './../services/recipe-management.service';
+import { RecipeManagementService } from '../services/recipe-management.service';
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({

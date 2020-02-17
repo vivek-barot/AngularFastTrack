@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListRecipeComponent } from './components/list-recipe/list-recipe.component';
-import { ChangeBackgroundDirective } from './shared/change-background.directive';
+import { ChangeBackgroundDirective } from './directives/change-background.directive';
 
 @NgModule({
   declarations: [
@@ -25,4 +25,5 @@ import { ChangeBackgroundDirective } from './shared/change-background.directive'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

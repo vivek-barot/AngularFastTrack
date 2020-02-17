@@ -1,5 +1,7 @@
+import { element } from 'protractor';
+import { RecipeManagementService } from './../../services/recipe-management.service';
+import { LoggerService } from './../../directives/logger.service';
 import { Router } from '@angular/router';
-import { RecipeManagementService } from '../../services/recipe-management.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,16 +13,26 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListRecipeComponent implements OnInit {
 
   @Input() showRecipe: boolean = true;
-  recipeData;
+  @Input() home: boolean = false;
 
-  constructor(private router: Router, private rm: RecipeManagementService) {
+  recipeData = [];
+
+  constructor(private router: Router, private recipeManagementService: RecipeManagementService) {
   }
 
   ngOnInit() {
-    this.recipeData = this.rm.getRecipeData();
+    this.recipeData = this.recipeManagementService.getRecipeData();
   }
 
   goToCreateRecipe() {
     this.router.navigate(['create']);
+  }
+
+  addFavourite(data) {
+    data.isFavorite = !data.isFavorite;
+  }
+
+  getFilterByFavourite() {
+    return this.recipeData.filter(e => e.isFavorite === true);
   }
 }
