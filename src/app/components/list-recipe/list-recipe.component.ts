@@ -1,6 +1,4 @@
-import { element } from 'protractor';
 import { RecipeManagementService } from './../../services/recipe-management.service';
-import { LoggerService } from './../../directives/logger.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
