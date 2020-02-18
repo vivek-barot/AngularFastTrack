@@ -19,4 +19,8 @@ export class LoggerService {
   showError(message) {
     return this.toasterService.error(message, "Error");
   }
+
+  showInfo(message){
+    return this.toasterService.info(message, "Login Info");
+  }
 }

@@ -30,6 +30,16 @@ export class ListRecipeComponent implements OnInit {
     data.isFavorite = !data.isFavorite;
   }
 
+  getListData() {
+    // return this.recipeData.map(data => {
+    //   return { "image": data.image, "name": data.name, "isFavorite": data.isFavorite }
+    // });
+    return this.recipeData.map(data => {
+      const { image, name, isFavorite} = data;
+      return { image,name,isFavorite };
+    });
+  }
+
   getFilterByFavourite() {
     return this.recipeData.filter(e => e.isFavorite === true);
   }

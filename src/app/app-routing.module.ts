@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'create', component: CreateRecipeComponent, canActivate: [AuthGuard] },
   { path: 'list', component: ListRecipeComponent },

@@ -1,6 +1,5 @@
 import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +10,5 @@ export class AppComponent {
 
   title = 'AngularFastTrackByVivek';
 
-  constructor(public auth: AuthService, private router: Router) { }
-
-  goToHome(){
-    if(this.auth.isLoggedIn()){
-      this.router.navigate(['home']);
-    }else{
-      this.router.navigate(['']);
-    }
-  }
+  constructor(public auth: AuthService) { }
 }

@@ -24,6 +24,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem("LoggedInUser");
     this.loggerService.showSuccess('Successfully logged out.');
-    this.myRoute.navigate(['']);
+    this.myRoute.navigate(['home']);
   }
 }

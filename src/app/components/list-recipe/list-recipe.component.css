@@ -10,6 +10,10 @@
     margin-bottom: 10px;
 }
 
+.ml-15 {
+    margin-left: 15px;
+}
+
 .non-veg {
     color: red;
 }
@@ -34,4 +38,8 @@
 .setImage {
     height: 275px;
     object-fit: cover;
+}
+
+.width-30 {
+    width: 30%;
 }

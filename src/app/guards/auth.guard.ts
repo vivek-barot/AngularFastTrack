@@ -8,34 +8,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private myRoute: Router, private loggerService: LoggerService){
+  constructor(private auth: AuthService, private router: Router, private loggerService: LoggerService) {
   }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.auth.isLoggedIn()){
+    if (this.auth.isLoggedIn()) {
       return true;
-    }else{
+    } else {
       this.loggerService.showError("You need to login first!");
-      this.myRoute.navigate(['']);
+      this.router.navigate(['login']);
       return false;
     }
   }
-
-  // canActivate(
-  //   next: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
-  // canActivateChild(
-  //   next: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
-  // canLoad(
-  //   route: Route,
-  //   segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-  //   return true;
-  // }
 }

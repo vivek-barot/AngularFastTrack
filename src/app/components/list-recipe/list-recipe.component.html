@@ -1,31 +1,22 @@
 <div class="container">
     <div *ngIf="!home">
-        <input class="container mt-3" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching...">
-        <div class="row">
-            <div *ngFor="let data of recipeData | filter:searchText" class="col-md-4 mt-3">
-                <div class="card">
-                    <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
-                    <div class="card-body">
-                        <h4 class="card-title inlineDisplay">{{ data.name }}</h4>
-                        <div class="rightFloat inlineDisplay" *ngIf="!data.isFavorite">
-                            <img src="../../../assets/images/blank_heart.png" class="setFavIcon" alt="chako image" (click)="this.addFavourite(data)">
-                        </div>
-                        <div class="rightFloat inlineDisplay" *ngIf="data.isFavorite">
-                            <img src="../../../assets/images/filled_heart.png" class="setFavIcon" alt="chako image" (click)="this.addFavourite(data)">
-                        </div>
-                        <div class="card-text description-section pt-2" style="-webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                            {{ data.description }}</div>
-                        <div class="card-text" [class]="data.type === 'Veg' ? 'veg' : 'non-veg'" [ngStyle]="{'text-decoration': (data.type === 'Veg') ? 'underline' : 'line-through'}"><b>{{ data.type }}</b>
-                        </div>
-                        <div class="card-text"><b>Chef:</b> {{ data.chef }}</div>
-                        <div class="card-text" appChangeBackground [approved]="data.approved"><b style="font-style: normal;">Approved
-              By:</b> {{ data.approved == 1 ? 'Vivek' : 'Sachin'}}</div>
+        <input class="container ml-15 mt-3 width-30" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching...">
+        <div *ngFor="let data of recipeData | filter:searchText" class="col-md-4 mt-3">
+            <div class="card">
+                <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
+                <div class="card-body">
+                    <h4 class="card-title inlineDisplay">{{ data.name }}</h4>
+                    <div class="rightFloat inlineDisplay" *ngIf="!data.isFavorite">
+                        <img src="../../../assets/images/blank_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
+                    </div>
+                    <div class="rightFloat inlineDisplay" *ngIf="data.isFavorite">
+                        <img src="../../../assets/images/filled_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mt-3" *ngIf="!home">
+    <div class="mt-3 ml-15" *ngIf="!home">
         <button (click)="goToCreateRecipe() " class="btn btn-primary ">Create Recipe</button>
     </div>
 </div>
@@ -49,8 +40,9 @@
                     <div class="card-text" [class]="data.type === 'Veg' ? 'veg' : 'non-veg'" [ngStyle]="{'text-decoration': (data.type === 'Veg') ? 'underline' : 'line-through'}"><b>{{ data.type }}</b>
                     </div>
                     <div class="card-text"><b>Chef:</b> {{ data.chef }}</div>
-                    <div class="card-text" appChangeBackground [approved]="data.approved"><b style="font-style: normal;">Approved
-              By:</b> {{ data.approved == 1 ? 'Vivek' : 'Sachin'}}</div>
+                    <div class="card-text" appChangeBackground [approved]="data.approved">
+                        <b style="font-style: normal;">Approved By:</b> {{ data.approved == 1 ? 'Vivek' : 'Sachin'}}
+                    </div>
                 </div>
             </div>
         </div>

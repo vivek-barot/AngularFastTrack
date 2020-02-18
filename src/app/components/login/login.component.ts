@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private auth: AuthService, private loggerService: LoggerService) { }
 
   ngOnInit() {
+    this.loggerService.showInfo("Username: vivek & Password: vivek");
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
