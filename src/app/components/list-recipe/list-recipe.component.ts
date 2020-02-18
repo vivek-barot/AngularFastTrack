@@ -13,6 +13,7 @@ export class ListRecipeComponent implements OnInit {
   @Input() showRecipe: boolean = true;
   @Input() home: boolean = false;
 
+  searchText;
   recipeData = [];
 
   constructor(private router: Router, private recipeManagementService: RecipeManagementService) {

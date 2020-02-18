@@ -1,3 +1,4 @@
+import { LoggerService } from './logger.service';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private myRoute: Router) { }
+  constructor(private myRoute: Router, private loggerService: LoggerService) { }
 
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token)
@@ -22,6 +23,7 @@ export class AuthService {
   
   logout() {
     localStorage.removeItem("LoggedInUser");
+    this.loggerService.showSuccess('Successfully logged out.');
     this.myRoute.navigate(['']);
   }
 }

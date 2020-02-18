@@ -1,7 +1,7 @@
+import { LoggerService } from './../../services/logger.service';
 import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { RecipeManagementService } from './../../services/recipe-management.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private router: Router, private auth: AuthService, private loggerService: LoggerService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -25,15 +25,15 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.value.username === 'vivek') {
       if (this.loginForm.value.password === 'vivek') {
-        this.auth.sendToken(this.loginForm.value.username)
-        let formData = { ...this.loginForm.value };
+        this.loggerService.showSuccess('Successfully logged in.');
+        this.auth.sendToken(this.loginForm.value.username);
         this.loginForm.reset({ username: '', password: '' });
         this.router.navigate(['create']);
       } else {
-        console.log("password is wrong.");
+        this.loggerService.showError('Password is wrong. It must be \'vivek\'');
       }
     } else {
-      console.log("username is wrong.");
+      this.loggerService.showError('Username is wrong. It must be \'vivek\'');
     }
   }
 

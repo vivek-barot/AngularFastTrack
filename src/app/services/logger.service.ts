@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class LoggerService {
 
-  constructor() { }
+  constructor(public toasterService: ToastrService) { }
 
-  dynamicConsole(data){
+  dynamicConsole(data) {
     console.log(data);
+  }
+
+  showSuccess(message) {
+    return this.toasterService.success(message, 'Success');
+  }
+
+  showError(message) {
+    return this.toasterService.error(message, "Error");
   }
 }
