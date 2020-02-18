@@ -13,6 +13,7 @@ import { ChangeBackgroundDirective } from './directives/change-background.direct
 
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CreateRecipeComponent,
     HomeComponent,
     ListRecipeComponent,
-    ChangeBackgroundDirective
+    ChangeBackgroundDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

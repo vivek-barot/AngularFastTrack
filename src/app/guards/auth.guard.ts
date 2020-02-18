@@ -1,4 +1,5 @@
-import { AuthService } from './services/auth.service';
+import { LoggerService } from '../services/logger.service';
+import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private myRoute: Router){
+  constructor(private auth: AuthService, private myRoute: Router, private loggerService: LoggerService){
   }
 
   canActivate(
@@ -16,6 +17,7 @@ export class AuthGuard implements CanActivate {
     if(this.auth.isLoggedIn()){
       return true;
     }else{
+      this.loggerService.showError("You need to login first!");
       this.myRoute.navigate(['']);
       return false;
     }

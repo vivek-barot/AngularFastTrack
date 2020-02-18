@@ -10,7 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class ListRecipeComponent implements OnInit {
 
-  @Input() showRecipe: boolean = true;
   @Input() home: boolean = false;
 
   searchText;
