@@ -2,6 +2,7 @@
     <div *ngIf="!home">
         <input class="container ml-15 mt-3 width-30" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching...">
         <div *ngFor="let data of recipeData | filter:searchText" class="col-md-4 mt-3">
+            <!-- <div *ngFor="let data of getListData() | filter:searchText" class="col-md-4 mt-3"> -->
             <div class="card">
                 <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
                 <div class="card-body">
@@ -22,7 +23,7 @@
 </div>
 <div *ngIf="home">
     <input class="container mt-3" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching...">
-    <h4 class="card-title mt-3">My Favourite Recipes :</h4>
+    <h4 class="card-title mt-3" *ngIf="getFilterByFavourite().length > 0">My Favourite Recipes :</h4>
     <div class="row">
         <div *ngFor="let data of getFilterByFavourite() | filter:searchText" class="col-md-4 mt-3">
             <div class="card">
