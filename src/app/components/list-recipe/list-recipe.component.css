@@ -40,6 +40,13 @@
     object-fit: cover;
 }
 
-.width-30 {
-    width: 30%;
+.searchBar-list {
+    width: 30.6%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.searchBar-home {
+    padding-top: 7px;
+    padding-bottom: 7px;
 }

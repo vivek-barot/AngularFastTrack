@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngIf="!home">
-        <input class="container ml-15 mt-3 width-30" type="text" [(ngModel)]="searchName" placeholder="Start searching...">
+        <input class="container ml-15 mt-3 searchBar-list" type="text" [(ngModel)]="searchName" placeholder="Start searching...">
         <div *ngFor="let data of recipeData | search:'name':searchName" class="col-md-4 mt-3">
             <div class="card">
                 <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
@@ -15,13 +15,14 @@
                 </div>
             </div>
         </div>
+        <!-- <app-recipe-detail></app-recipe-detail> -->
     </div>
     <div class="mt-3 ml-15" *ngIf="!home">
         <button (click)="goToCreateRecipe() " class="btn btn-primary ">Create Recipe</button>
     </div>
 </div>
 <div *ngIf="home">
-    <input class="container mt-3" type="text" [(ngModel)]="searchName" placeholder="Start searching recipes by name, type or by chef...">
+    <input class="container mt-3 searchBar-home" type="text" [(ngModel)]="searchName" placeholder="Start searching recipes by name, type or by chef...">
     <h4 class="card-title mt-3" *ngIf="getFilterByFavourite().length > 0">My Favourite Recipes :</h4>
     <div class="row">
         <div *ngFor="let data of getFilterByFavourite() | search:'name,type,chef':searchName" class="col-md-4 mt-3">

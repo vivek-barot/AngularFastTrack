@@ -12,6 +12,7 @@ import { ListRecipeComponent } from './components/list-recipe/list-recipe.compon
 import { ChangeBackgroundDirective } from './directives/change-background.directive';
 import { LoginComponent } from './components/login/login.component';
 import { SearchPipe } from './search.pipe';
+import { RecipeDetailComponent } from './components/list-recipe/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchPipe } from './search.pipe';
     ListRecipeComponent,
     ChangeBackgroundDirective,
     LoginComponent,
-    SearchPipe
+    SearchPipe,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
