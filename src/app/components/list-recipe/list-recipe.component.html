@@ -1,23 +1,27 @@
-<div class="container">
-    <div *ngIf="!home">
-        <input class="container ml-15 mt-3 searchBar-list" type="text" [(ngModel)]="searchName" placeholder="Start searching...">
-        <div *ngFor="let data of recipeData | search:'name':searchName" class="col-md-4 mt-3">
-            <div class="card">
-                <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
-                <div class="card-body">
-                    <h4 class="card-title inlineDisplay">{{ data.name }}</h4>
-                    <div class="rightFloat inlineDisplay" *ngIf="!data.isFavorite">
-                        <img src="../../../assets/images/blank_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
-                    </div>
-                    <div class="rightFloat inlineDisplay" *ngIf="data.isFavorite">
-                        <img src="../../../assets/images/filled_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
+<div class="container" *ngIf="!home">
+    <input class="container mt-4 searchBar-list" type="text" [(ngModel)]="searchName" placeholder="Start searching...">
+    <div class="row">
+        <div class="col-md-4">
+            <div *ngFor="let data of recipeData | search:'name':searchName;let i = index">
+                <div class="card mt-4">
+                    <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image" (click)="showRecipeDetails(i)">
+                    <div class="card-body">
+                        <h4 class="card-title inlineDisplay">{{ data.name }}</h4>
+                        <div class="rightFloat inlineDisplay" *ngIf="!data.isFavorite">
+                            <img src="../../../assets/images/blank_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
+                        </div>
+                        <div class="rightFloat inlineDisplay" *ngIf="data.isFavorite">
+                            <img src="../../../assets/images/filled_heart.png" class="setFavIcon" (click)="this.addFavourite(data)">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <app-recipe-detail></app-recipe-detail> -->
+        <div class="col-md-8">
+            <app-recipe-detail></app-recipe-detail>
+        </div>
     </div>
-    <div class="mt-3 ml-15" *ngIf="!home">
+    <div class="mt-4" *ngIf="!home">
         <button (click)="goToCreateRecipe() " class="btn btn-primary ">Create Recipe</button>
     </div>
 </div>

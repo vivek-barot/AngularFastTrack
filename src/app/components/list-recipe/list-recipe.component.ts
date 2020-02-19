@@ -33,4 +33,8 @@ export class ListRecipeComponent implements OnInit {
   getFilterByFavourite() {
     return this.recipeData.filter(e => e.isFavorite === true);
   }
+
+  showRecipeDetails(index) {
+    console.log(index);
+  }
 }

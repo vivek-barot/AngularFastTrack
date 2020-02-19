@@ -10,10 +10,6 @@
     margin-bottom: 10px;
 }
 
-.ml-15 {
-    margin-left: 15px;
-}
-
 .non-veg {
     color: red;
 }
@@ -41,7 +37,6 @@
 }
 
 .searchBar-list {
-    width: 30.6%;
     padding-top: 7px;
     padding-bottom: 7px;
 }
