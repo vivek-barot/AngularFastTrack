@@ -12,7 +12,7 @@ export class ListRecipeComponent implements OnInit {
 
   @Input() home: boolean = false;
 
-  searchText;
+  searchName: string = '';
   recipeData = [];
 
   constructor(private router: Router, private recipeManagementService: RecipeManagementService) {
@@ -28,16 +28,6 @@ export class ListRecipeComponent implements OnInit {
 
   addFavourite(data) {
     data.isFavorite = !data.isFavorite;
-  }
-
-  getListData() {
-    // return this.recipeData.map(data => {
-    //   return { "image": data.image, "name": data.name, "isFavorite": data.isFavorite }
-    // });
-    return this.recipeData.map(data => {
-      const { image, name, isFavorite} = data;
-      return { image,name,isFavorite };
-    });
   }
 
   getFilterByFavourite() {

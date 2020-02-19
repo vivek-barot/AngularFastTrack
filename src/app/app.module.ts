@@ -10,10 +10,8 @@ import { CreateRecipeComponent } from './components/create-recipe/create-recipe.
 import { HomeComponent } from './components/home/home.component';
 import { ListRecipeComponent } from './components/list-recipe/list-recipe.component';
 import { ChangeBackgroundDirective } from './directives/change-background.directive';
-
-// search module
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './components/login/login.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -22,14 +20,14 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     ListRecipeComponent,
     ChangeBackgroundDirective,
-    LoginComponent
+    LoginComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
