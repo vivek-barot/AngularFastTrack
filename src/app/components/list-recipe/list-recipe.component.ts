@@ -35,6 +35,6 @@ export class ListRecipeComponent implements OnInit {
   }
 
   showRecipeDetails(index) {
-    console.log(index);
+    this.recipeManagementService.sendRecipeInfo(this.recipeManagementService.getRecipeData()[index]);
   }
 }

@@ -1,0 +1,25 @@
+.non-veg {
+    color: red;
+}
+
+.veg {
+    color: green;
+}
+
+.setFavIcon {
+    height: 25px;
+    width: 25px;
+}
+
+.inlineDisplay {
+    display: inline;
+}
+
+.rightFloat {
+    float: right;
+}
+
+.setImage {
+    height: 275px;
+    object-fit: cover;
+}

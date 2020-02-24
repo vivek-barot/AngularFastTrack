@@ -1,25 +1,22 @@
-<div class="container">
-    <p>Hello</p>
-    <!-- <div *ngFor="let data of getFilterByFavourite()" class="col-md-4 mt-3">
-        <div class="card">
-            <img class="card-img-top setImage" src="{{ data.image }}" alt="Recipe image">
-            <div class="card-body">
-                <h4 class="card-title inlineDisplay">{{ data.name }}</h4>
-                <div class="rightFloat inlineDisplay" *ngIf="!data.isFavorite">
-                    <img src="../../../assets/images/blank_heart.png" class="setFavIcon" alt="chako image">
-                </div>
-                <div class="rightFloat inlineDisplay" *ngIf="data.isFavorite">
-                    <img src="../../../assets/images/filled_heart.png" class="setFavIcon" alt="chako image">
-                </div>
-                <div class="card-text description-section pt-2" style="-webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                    {{ data.description }}</div>
-                <div class="card-text" [class]="data.type === 'Veg' ? 'veg' : 'non-veg'" [ngStyle]="{'text-decoration': (data.type === 'Veg') ? 'underline' : 'line-through'}"><b>{{ data.type }}</b>
-                </div>
-                <div class="card-text"><b>Chef:</b> {{ data.chef }}</div>
-                <div class="card-text" appChangeBackground [approved]="data.approved">
-                    <b style="font-style: normal;">Approved By:</b> {{ data.approved == 1 ? 'Vivek' : 'Sachin'}}
-                </div>
+<div class="container mt-4">
+    <div class="card">
+        <img class="card-img-top setImage" src="{{ recipeDetails?.image }}" alt="Recipe image">
+        <div class="card-body">
+            <h4 class="card-title inlineDisplay">{{ recipeDetails?.name }}</h4>
+            <div class="rightFloat inlineDisplay" *ngIf="!recipeDetails?.isFavorite">
+                <img src="../../../assets/images/blank_heart.png" class="setFavIcon" alt="chako image">
+            </div>
+            <div class="rightFloat inlineDisplay" *ngIf="recipeDetails?.isFavorite">
+                <img src="../../../assets/images/filled_heart.png" class="setFavIcon" alt="chako image">
+            </div>
+            <div class="card-text description-section pt-2" style="-webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                {{ recipeDetails?.description }}</div>
+            <div class="card-text" [class]="recipeDetails?.type === 'Veg' ? 'veg' : 'non-veg'" [ngStyle]="{'text-decoration': (recipeDetails?.type === 'Veg') ? 'underline' : 'line-through'}"><b>{{ recipeDetails?.type }}</b>
+            </div>
+            <div class="card-text"><b>Chef:</b> {{ recipeDetails?.chef }}</div>
+            <div class="card-text" appChangeBackground [approved]="recipeDetails?.approved">
+                <b style="font-style: normal;">Approved By:</b> {{ recipeDetails?.approved == 1 ? 'Vivek' : 'Sachin'}}
             </div>
         </div>
-    </div> -->
+    </div>
 </div>

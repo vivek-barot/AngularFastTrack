@@ -1,3 +1,4 @@
+import { RecipeManagementService } from './../../../services/recipe-management.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  @Input() recipe = [];
+  recipeDetails;
 
-  constructor() { }
+  constructor(private recipeManagementService: RecipeManagementService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.recipeDetails = this.recipeManagementService.getRecipeData()[0];
+    this.recipeManagementService.getRecipeInfo().subscribe(
+      data => {
+        this.recipeDetails = data;
+      }
+    );
+  }
+
 }

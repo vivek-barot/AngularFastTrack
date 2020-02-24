@@ -1,11 +1,13 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class RecipeManagementService {
+  recipeInfo = new Subject<any>();
   recipeData = [
     {
       name: 'Burger',
@@ -50,5 +52,13 @@ export class RecipeManagementService {
 
   setRecipeData(data) {
     this.recipeData.push(data);
+  }
+
+  sendRecipeInfo(data){
+    this.recipeInfo.next(data);
+  }
+
+  getRecipeInfo(){
+    return this.recipeInfo.asObservable();
   }
 }
